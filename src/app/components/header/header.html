@@ -1,0 +1,19 @@
+<!-- src/app/shared/header/header.component.html -->
+<header class="app-header">
+  <div class="container">
+    <h1>ProjVerify</h1>
+
+    <!-- Hamburger Button (Mobile Only) -->
+    <button class="hamburger" (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+
+
+    <!-- Navigation Links -->
+    <nav class="nav-links" [class.active]="isMenuOpen">
+      <a routerLink="/" routerLinkActive="active" (click)="closeMenu()">Home</a>
+      <a routerLink="/feature" routerLinkActive="active" (click)="closeMenu()">Features</a>
+      <button routerLink="/login">Login</button> 
+    </nav>
+  </div>
+</header>

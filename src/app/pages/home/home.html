@@ -1,0 +1,39 @@
+<div id="home" class="page active">
+  <section class="hero">
+    <h1>
+      AI-Driven Academic Project <br />
+      Validation
+    </h1>
+    <p>
+      Streamline your project review process with intelligent similarity
+      detection and automated validation powered by advanced AI
+    </p>
+    <div class="hero-buttons">
+      <a href="#" class="btn btn-primary" onclick="showPage('register')"
+        >Get Started</a
+      >
+      <a
+        href="#"
+        class="btn btn-secondary"
+        style="background: white; color: #667eea"
+        >Learn More</a
+      >
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Key Features</h2>
+    <div class="feature-grid">
+      @for (item of features; track $index) {
+      <div class="feature-card">
+        <div class="feature-icon">{{item.icons}}</div>
+        <h3>{{item.title}}</h3>
+        <p>{{item.text}}</p>
+      </div>
+      }
+    </div>
+    <p style="text-align: center; margin-top: 20px;color: #667eea;cursor: pointer;"><a (click)="featurePage()">See More</a></p>
+  </section>
+
+  
+</div>
