@@ -112,3 +112,21 @@
     transform: translateY(0);
   }
 }
+
+@media screen and (max-width: 765px) {
+  .hero{
+    border-radius: 20px;
+    height: 85vh;
+  }
+  .hero h1 {
+  font-size: 2.5rem;
+  }
+  .hero p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+.features {
+  
+  margin-top: 2rem;
+}
+}

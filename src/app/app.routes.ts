@@ -4,6 +4,7 @@ import { Home } from './pages/home/home';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { Feature } from './pages/feature/feature';
+import { ProposalSubmission } from './pages/proposal-submission/proposal-submission';
 
 export const routes: Routes = [
   {
@@ -17,4 +18,5 @@ export const routes: Routes = [
       { path: 'register', component: Register },
     ],
   },
+  { path: 'new-proposal', component: ProposalSubmission },
 ];
