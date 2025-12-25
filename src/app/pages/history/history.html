@@ -1,0 +1,230 @@
+<!-- Top Bar -->
+<div class="top-bar">Historical Projects Archive</div>
+
+<!-- Header -->
+<header>
+  <div class="header-left">
+    <div class="logo">
+      <div class="logo-icon">✓</div>
+      <span class="logo-text">ProjVerify</span>
+      <span class="subtitle">| Academic Project Validation</span>
+    </div>
+    <nav>
+      <a href="#">Dashboard</a>
+      <a href="#" class="active">Archive</a>
+      <a href="#">Review</a>
+      <a href="#">Reports</a>
+    </nav>
+  </div>
+  <div class="user-profile">
+    <div class="user-avatar">👤</div>
+    <span class="user-name">Dr. A. Smith</span>
+    <span>▼</span>
+  </div>
+</header>
+
+<!-- Main Content -->
+<main class="main-content">
+  <!-- Page Header -->
+  <div class="page-header">
+    <h1>Historical Projects Archive</h1>
+    <p class="page-subtitle">
+      Explore past academic project documents for comparative analysis and
+      validation.
+    </p>
+  </div>
+
+  <div class="content-layout">
+    <!-- Sidebar Filters -->
+    <aside class="sidebar">
+      <div class="search-box">
+        <input type="text" placeholder="Search by Keywords" />
+      </div>
+
+      <!-- Date Range Filter -->
+      <div class="filter-section">
+        <div class="filter-header">
+          <span>Date Range</span>
+          <span class="filter-toggle">▲</span>
+        </div>
+        <div class="date-inputs">
+          <div class="date-input-group">
+            <input type="text" placeholder="Start Date" />
+          </div>
+          <div class="date-input-group">
+            <input type="text" placeholder="End Date" />
+          </div>
+        </div>
+        <div class="date-shortcuts">
+          <button class="date-shortcut">Last 6 Months</button>
+          <button class="date-shortcut">Last 1 Year</button>
+          <button class="date-shortcut">Last 5 Years</button>
+        </div>
+      </div>
+
+      <!-- Department Filter -->
+      <div class="filter-section">
+        <div class="filter-header">
+          <span>Department</span>
+          <span class="filter-toggle">▲</span>
+        </div>
+        <div class="filter-options">
+          <div class="filter-option">
+            <input type="checkbox" id="cs" />
+            <label for="cs"
+              >Computer Science <span class="filter-count">(124)</span></label
+            >
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="ee" />
+            <label for="ee"
+              >Electrical Engineering
+              <span class="filter-count">(98)</span></label
+            >
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="bio" />
+            <label for="bio"
+              >Biology <span class="filter-count">(76)</span></label
+            >
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="hist" />
+            <label for="hist"
+              >History <span class="filter-count">(54)</span></label
+            >
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="psych" />
+            <label for="psych"
+              >Psychology <span class="filter-count">(45)</span></label
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Project Type Filter -->
+      <div class="filter-section">
+        <div class="filter-header">
+          <span>Project Type</span>
+          <span class="filter-toggle">▲</span>
+        </div>
+        <div class="filter-options">
+          <div class="filter-option">
+            <input type="checkbox" id="thesis" />
+            <label for="thesis">Thesis</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="dissertation" />
+            <label for="dissertation">Dissertation</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="capstone" />
+            <label for="capstone">Capstone</label>
+          </div>
+          <div class="filter-option">
+            <input type="checkbox" id="research" />
+            <label for="research">Research Paper</label>
+          </div>
+        </div>
+      </div>
+
+      <button class="apply-filters-btn">Apply Filters</button>
+    </aside>
+
+    <!-- Projects List -->
+    <div class="projects-container">
+      <div class="list-controls">
+        <div class="sort-control">
+          <label>Sort by:</label>
+          <select>
+            <option>Date (Newest First)</option>
+            <option>Date (Oldest First)</option>
+            <option>Title (A-Z)</option>
+            <option>Title (Z-A)</option>
+          </select>
+        </div>
+        <div class="view-toggle">
+          <button class="view-btn active">☰</button>
+          <button class="view-btn">⊞</button>
+        </div>
+      </div>
+
+      <!-- Project Cards -->
+      <div class="project-card">
+        <div class="project-icon">📄</div>
+        <a href="#" class="project-title"
+          >An Analysis of Quantum Computing Algorithms for Cryptography</a
+        >
+        <div class="project-meta">
+          <span class="meta-item">Department: Computer Science</span>
+          <span class="meta-item">| Date: May 2023</span>
+          <span class="meta-item">| Type: Thesis</span>
+          <span class="meta-item">| Author: J. Doe</span>
+        </div>
+        <p class="project-abstract">
+          Abstract: This project explores the potential of quantum algorithms to
+          break current cryptographic standards...
+        </p>
+        <div class="project-actions">
+          <button class="btn btn-view">View Document</button>
+          <button class="btn btn-download">⬇ Download</button>
+          <button class="btn btn-compare">Compare</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">📄</div>
+        <a href="#" class="project-title"
+          >Urban Development in Post-War Europe: A Comparative Study</a
+        >
+        <div class="project-meta">
+          <span class="meta-item">Department: History</span>
+          <span class="meta-item">| Date: Nov 2022</span>
+          <span class="meta-item">| Type: Dissertation</span>
+          <span class="meta-item">| Author: M. Rossi</span>
+        </div>
+        <p class="project-abstract">
+          Abstract: A historical analysis comparing urban reconstruction efforts
+          in different European cities...
+        </p>
+        <div class="project-actions">
+          <button class="btn btn-view">View Document</button>
+          <button class="btn btn-download">⬇ Download</button>
+          <button class="btn btn-compare">Compare</button>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-icon">📄</div>
+        <a href="#" class="project-title"
+          >Neuroplasticity and Learning: Experimental Findings</a
+        >
+        <div class="project-meta">
+          <span class="meta-item">Department: Psychology</span>
+          <span class="meta-item">| Date: Mar 2022</span>
+          <span class="meta-item">| Type: Research Paper</span>
+          <span class="meta-item">| Author: L. Chen</span>
+        </div>
+        <p class="project-abstract">
+          Abstract: Investigating the brain's ability to reorganize itself
+          during learning processes...
+        </p>
+        <div class="project-actions">
+          <button class="btn btn-view">View Document</button>
+          <button class="btn btn-download">⬇ Download</button>
+          <button class="btn btn-compare">Compare</button>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination">
+        <button disabled>⟨⟨</button>
+        <button disabled>⟨</button>
+        <span>Page 1 of 45</span>
+        <button>⟩</button>
+        <button>⟩⟩</button>
+      </div>
+    </div>
+  </div>
+</main>
