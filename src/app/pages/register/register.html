@@ -1,36 +1,27 @@
 <div id="register" class="page">
   <div class="auth-container">
     <div class="auth-box">
-      <h2>Create Account</h2>
-      <div class="step-buttons">
-         <button (click)="changeTab('step1')">step 1</button>
-         <button (click)="changeTab('step2')">step 2</button>
-      </div>
+      <h2 *ngIf="page !== 'step3'">Create Account</h2>
+      <h2 *ngIf="page === 'step3'">Verify Email</h2>
       
-      <form onsubmit="handleRegister(event)">
-        <fieldset *ngIf="page == 'step1'">
+      <div class="step-buttons" *ngIf="page !== 'step3'">
+        <button [class.active]="page === 'step1'" (click)="changeTab('step1')">Step 1</button>
+        <button [class.active]="page === 'step2'" (click)="changeTab('step2')">Step 2</button>
+      </div>
+
+      <form (ngSubmit)="page === 'step3' ? handleConfirm() : handleRegister()">
+        <fieldset *ngIf="page === 'step1'">
           <div class="form-group">
-            <label for="register-name">Full Name</label>
-            <input
-              type="text"
-              id="register-name"
-              placeholder="Enter your full name"
-              required
-            />
+            <label>Full Name</label>
+            <input type="text" [(ngModel)]="user.name" name="name" required />
           </div>
           <div class="form-group">
-            <label for="register-email">Email Address</label>
-            <input
-              type="email"
-              id="register-email"
-              placeholder="Enter your email"
-              required
-            />
+            <label>Email Address</label>
+            <input type="email" [(ngModel)]="user.email" name="email" required />
           </div>
           <div class="form-group">
-            <label for="register-role">Role</label>
-            <select id="register-role" required>
-              <option value="">Select your role</option>
+            <label>Role</label>
+            <select [(ngModel)]="user.role" name="role" required>
               <option value="faculty">Faculty Reviewer</option>
               <option value="student">Student</option>
               <option value="admin">Administrator</option>
@@ -38,43 +29,36 @@
           </div>
           <button (click)="changeTab('step2')" type="button" class="submit-btn">Next</button>
         </fieldset>
-        <fieldset *ngIf="page== 'step2'">
-          <div class="form-group">
-            <label for="register-department">Department</label>
-            <input
-              type="text"
-              id="register-department"
-              placeholder="Enter your department"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="register-password">Password</label>
-            <input
-              type="password"
-              id="register-password"
-              placeholder="Create a password"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="register-confirm">Confirm Password</label>
-            <input
-              type="password"
-              id="register-confirm"
-              placeholder="Confirm your password"
-              required
-            />
-          </div>
 
-          <button type="submit" class="submit-btn">Create Account</button>
+        <fieldset *ngIf="page === 'step2'">
+          <div class="form-group">
+            <label>Department</label>
+            <input type="text" [(ngModel)]="user.department" name="dept" required />
+          </div>
+          <div class="form-group">
+            <label>Password</label>
+            <input type="password" [(ngModel)]="user.password" name="pwd" required />
+          </div>
+          <div class="form-group">
+            <label>Confirm Password</label>
+            <input type="password" [(ngModel)]="user.confirm" name="cpwd" required />
+          </div>
+          <button type="submit" class="submit-btn">Register</button>
+        </fieldset>
+
+        <fieldset *ngIf="page === 'step3'">
+          <p class="info-text">We sent a 6-digit code to <b>{{user.email}}</b></p>
+          <div class="form-group">
+            <label>Verification Code</label>
+            <input type="text" [(ngModel)]="confirmationCode" name="code" placeholder="123456" required />
+          </div>
+          <button type="submit" class="submit-btn" style="margin-bottom: 5px;">Verify & Confirm</button>
+          <button (click)="page = 'step1'" type="button" class="back-link">Change Email</button>
         </fieldset>
       </form>
-      <div class="form-footer">
-        <p>
-          Already have an account?
-          <a (click)="loginPage()">Sign in here</a>
-        </p>
+
+      <div class="form-footer" *ngIf="page !== 'step3'">
+        <p>Already have an account? <a (click)="loginPage()">Sign in here</a></p>
       </div>
     </div>
   </div>
