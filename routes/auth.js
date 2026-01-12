@@ -5,5 +5,5 @@ const authController = require('../controllers/auth.contollers'); // Import the 
 // Define the routes
 router.post('/register', authController.register);
 router.post('/login', authController.login);
-
+router.post('/confirm', authController.confirmRegistration);
 module.exports = router;
