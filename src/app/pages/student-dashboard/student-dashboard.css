@@ -1,0 +1,139 @@
+.top-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 2rem;
+}
+
+.top-nav .logo{
+    font-size: 30px;
+    color: rgb(0, 106, 255);
+    font-weight: 600;
+}
+
+.top-nav a  {
+    font-size: 20px;
+    color: rgb(20, 21, 21);
+    font-weight: 500;
+    margin-left: 20px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.top-nav .logout {
+   color: white;
+   background-color: red;
+   padding: 10px;
+   border-radius: 50px;
+}
+
+button {
+    padding: 7px 15px;
+    background: blue;
+    border: none;
+    color: white;
+    border-radius: 10px;
+    font-size: 15px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.226);
+}
+.dashboard-container { 
+    padding: 2rem;
+    background: #f8f9fa; 
+    min-height: 90vh; 
+}
+.dashboard-grid { 
+    display: grid; 
+    grid-template-columns: 300px 1fr; 
+    gap: 2rem; 
+    max-width: 1200px; 
+    margin: 0 auto; 
+}
+
+/* Profile Card */
+.profile-card {
+     background: white; 
+     padding: 2rem;
+     border-radius: 12px; 
+     box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+     text-align: center; height: fit-content; 
+}
+.avatar { 
+    width: 80px; 
+    height: 80px; 
+    background: #3f51b5; 
+    color: white; 
+    border-radius: 50%; 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    font-size: 2rem; 
+    margin: 0 auto 1rem; 
+}
+.role-badge { 
+    background: #e8eaf6; 
+    color: #3f51b5; 
+    padding: 4px 12px; 
+    border-radius: 20px; 
+    font-size: 0.8rem; 
+    font-weight: 600; 
+    display: inline-block; 
+    margin-bottom: 10px;
+}
+.info-group { 
+    text-align: left; 
+    margin: 1rem 0; 
+}
+.info-group label { 
+    display: block; 
+    font-size: 0.75rem; 
+    color: #666; 
+    text-transform: uppercase; 
+}
+.status-active { 
+    color: #2e7d32; 
+    font-weight: bold; 
+}
+
+/* Proposals List */
+.proposals-list { 
+    background: white; 
+    padding: 2rem; 
+    border-radius: 12px; 
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); 
+}
+.list-header { 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    margin-bottom: 1.5rem; 
+}
+.proposal-table {
+     width: 100%; 
+     border-collapse: collapse; 
+}
+.proposal-table th { 
+    text-align: left; 
+    padding: 12px; 
+    border-bottom: 2px solid #eee; 
+    color: #666; 
+    font-size: 0.9rem; 
+}
+.proposal-table td { 
+    padding: 16px 12px; 
+    border-bottom: 1px solid #eee; 
+    font-size: 0.95rem; 
+}
+.badge { 
+    padding: 4px 8px; 
+    border-radius: 4px; 
+    font-size: 0.8rem; 
+    font-weight: bold; }
+.btn-view { 
+    background: #3f51b5; 
+    color: white; 
+    border: none; 
+    padding: 6px 12px; 
+    border-radius: 4px; 
+    cursor: pointer; }
+.btn-view:hover { 
+    background: #303f9f; 
+}

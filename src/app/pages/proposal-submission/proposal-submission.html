@@ -1,62 +1,65 @@
-<!-- Top Bar -->
 <div class="top-bar">New Proposal Submission</div>
 
-<!-- Header -->
 <header>
   <div class="logo-section">
     <div class="logo">ProjVerify</div>
     <div class="page-title">Academic Project Validation</div>
+    
   </div>
-  <div class="user-profile">
-    <div class="user-avatar">👤</div>
-    <div class="user-name">Dr. Anya Sharma</div>
-  </div>
+  <a class="page-title" (click)="dashboard()">Dashboard</a>
 </header>
 
-<!-- Main Content -->
 <main class="main-content">
   <div class="form-container">
     <h1>New Proposal Submission</h1>
 
-    <form>
-      <!-- Project Title -->
+    <form (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="project-title">Project Title</label>
         <input
           type="text"
           id="project-title"
-          placeholder="New Proposal Submission"
-          
+          name="projectTitle"
+          [(ngModel)]="projectTitle"
+          placeholder="Enter Project Title"
+          required
         />
       </div>
 
-      <!-- Abstract -->
       <div class="form-group">
         <label for="abstract">Abstract</label>
-        <textarea id="abstract" placeholder="Enter your project abstract..."></textarea
-        >
+        <textarea 
+          id="abstract" 
+          name="abstract"
+          [(ngModel)]="abstract"
+          placeholder="Enter your project abstract...">
+        </textarea>
       </div>
 
-      <!-- Project Document -->
       <div class="form-group">
         <label for="project-document">Project Document</label>
         <div class="file-upload-area">
           <div class="upload-text">
-            Drag and drop zone Uploaded <a href="#" class="upload-link">here</a>
+            Upload your project PDF <a href="#" class="upload-link">here</a>
           </div>
           <div class="file-input-wrapper">
             <label for="file-input" class="choose-file-btn">Choose File</label>
-            <input type="file" id="file-input" accept=".pdf,.doc,.docx" />
-            <span class="file-name">proposal_v3.pdf</span>
+            <input 
+              type="file" 
+              id="file-input" 
+              (change)="onFileSelected($event)"
+              accept=".pdf" 
+              style="display: none;" 
+            />
+            <span class="file-name">{{ fileName }}</span>
           </div>
         </div>
       </div>
 
-      <!-- Action Buttons -->
       <div class="form-actions">
         <button type="button" class="btn btn-secondary">Save Draft</button>
         <button type="submit" class="btn btn-primary">Submit Proposal</button>
       </div>
     </form>
   </div>
-
+</main>

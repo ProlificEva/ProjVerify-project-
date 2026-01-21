@@ -1,10 +1,12 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class Auth {
+  private router = inject(Router);
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:3000/api/auth';
 
@@ -21,11 +23,15 @@ export class Auth {
   }
 
   // Helper methods for your Guards and UI
-  isLoggedIn(): boolean {
-    return !!localStorage.getItem('token');
-  }
 
   logout() {
     localStorage.removeItem('token');
+    localStorage.removeItem('currentUser');
+    
+    // 2. Clear any other session-specific data
+    sessionStorage.clear();
+
+    // 3. Redirect to login page
+    this.router.navigate(['/login']);
   }
 }

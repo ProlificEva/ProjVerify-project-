@@ -1,1 +1,88 @@
-<p>student-dashboard works!</p>
+<header class="top-nav">
+  <div class="logo">ProjVerify</div>
+  <nav>
+    <a class="active">Dashboard</a>
+    <a (click)="newProposal()">New Proposal</a>
+    <a class="logout" (click)="logout()">Logout</a>
+  </nav>
+</header>
+
+<main class="dashboard-container">
+  <div class="dashboard-grid">
+    
+    <aside class="profile-card">
+      <div class="avatar">{{ currentUser?.name?.charAt(0) }}</div>
+      <h2>{{ currentUser?.name }}</h2>
+      <p class="role-badge">Student Member</p>
+      <hr>
+      <div class="info-group">
+        <label>Email</label>
+        <span class="info-value">{{ currentUser?.email }}</span>
+      </div>
+      <div class="info-group">
+        <label>Department</label>
+        <span class="info-value">{{ currentUser?.department }}</span>
+      </div>
+      <button class="btn-edit" (click)="fetchUserProposals()">Refresh List</button>
+    </aside>
+
+    <section class="proposals-list">
+      <div class="list-header">
+        <h3>My Submissions</h3>
+        <button class="btn-primary" (click)="newProposal()">+ New Submission</button>
+      </div>
+
+      <div *ngIf="isLoading" class="loader-container">
+        <div class="loader"></div>
+        <p>Connecting to AWS RDS...</p>
+      </div>
+
+      <div *ngIf="errorMessage" class="error-msg">
+        {{ errorMessage }}
+      </div>
+
+      <div class="proposal-table-wrapper" *ngIf="!isLoading">
+        <table class="proposal-table" *ngIf="proposals.length > 0">
+          <thead>
+            <tr>
+              <th>Project Title</th>
+              <th>Date Submitted</th>
+              <th>Document</th>
+              <th>AI Status</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let p of proposals">
+              <td class="title-cell"><strong>{{ p.title }}</strong></td>
+              <td>{{ p.created_at | date:'mediumDate' }}</td>
+              <td>
+                <button class="btn-icon" (click)="downloadFile(p.file_url)" title="View in S3">
+                  📄 View PDF
+                </button>
+              </td>
+              <td>
+                <span class="badge" 
+                  [ngClass]="{
+                    'high-risk': p.report_data?.status === 'High Risk', 
+                    'low-risk': p.report_data?.status === 'Low Risk',
+                    'moderate-risk': p.report_data?.status === 'Moderate Risk'
+                  }">
+                  {{ p.report_data?.status || 'Completed' }}
+                </span>
+              </td>
+              <td>
+                <button class="btn-view" (click)="viewReport(p)">View Report</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div *ngIf="proposals.length === 0 && !errorMessage" class="empty-state">
+          <p>No project submissions found for your account.</p>
+          <button class="btn-outline" (click)="newProposal()">Submit First Proposal</button>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>

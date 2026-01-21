@@ -9,6 +9,7 @@ import { ProposalResult } from './pages/proposal-result/proposal-result';
 import { Routes } from '@angular/router';
 import { authGuard } from './guards/auth.guard';
 import { roleGuard } from './guards/role.guard';
+import { StudentDashboard } from './pages/student-dashboard/student-dashboard';
 export const routes: Routes = [
   {
     path: '',
@@ -32,9 +33,14 @@ export const routes: Routes = [
     canActivate: [authGuard] // Any logged-in user can see history
   },
   { 
+    path: 'dashboard', 
+    component: StudentDashboard, 
+    canActivate: [authGuard] // Any logged-in user can see history
+  },
+  { 
     path: 'proposal-result', 
     component: ProposalResult, 
     canActivate: [authGuard, roleGuard],
-    data: { roles: ['faculty', 'admin'] } // Only faculty/admin can see results/grading
+    data: { roles: ['admin', 'student'] } // Only admin can see results/grading
   },
 ];
